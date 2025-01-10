@@ -1,0 +1,52 @@
+.navbar__list {
+    list-style: none;
+}
+
+.navbar__item{
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.navbar__link{
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    font-family: "Ubuntu Sans Mono", "Segoe-UI", sans-serif;
+    font-size: 1.02rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+}
+
+.navbar__link.active {
+    font-weight: 600;
+    color: rgb(255, 190, 0);
+}
+
+.navbar__link.active::before {
+    content: "";
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    bottom: -6px;
+    position: absolute;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.navbar__button--cta{
+    display: inline;
+    position: relative;
+    background: #ffb703;
+    background: linear-gradient(to top, #ffad00, #ffc800, #ffdc00);
+    border-radius: 0.25rem;
+    color: #000;
+    font-family: "Poppins";
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    padding-block: 0.6rem;
+    padding-inline: 1.5rem;
+    margin-left: 2rem;
+    transition: all 0.3s ease-in-out;
+}
