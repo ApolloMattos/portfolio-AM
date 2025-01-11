@@ -36,25 +36,6 @@ function App() {
     </>
   );
 }
-const mediaQuery = window.matchMedia("(min-width: 768px)");
 
-const element = document.querySelector(".navbar__list");
-
-const handleMediaQueryChange = (event: MediaQueryListEvent | MediaQueryList) => {
-  if (element) {
-    if (event.matches) {
-      element.classList.remove("sidebar")
-      console.log("no-sidebar")
-    } else {
-      element.classList.add("sidebar")
-      console.log("sidebar")
-    }
-  }
-};
-
-handleMediaQueryChange(mediaQuery);
-
-// Listen for changes in the media query
-mediaQuery.addEventListener("change", handleMediaQueryChange);
 
 export default App

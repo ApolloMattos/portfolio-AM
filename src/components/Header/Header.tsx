@@ -1,7 +1,6 @@
-import "./header.css"
+import './header.css'
 import { Navbar } from '../Navbar/Navbar';
-import { ProgressIndicator } from "../ProgressIndicator/ProgressIndicator";
-import { useEffect, useState } from "react";
+import { ProgressIndicator } from '../ProgressIndicator/ProgressIndicator';
 
 type HeaderProps = {
   refs: {
@@ -13,32 +12,14 @@ type HeaderProps = {
 };
 
 export function Header({ refs }: HeaderProps) {
-  const [isAtTop, setIsAtTop] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsAtTop(window.scrollY === 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     
-    <header className={`site-header ${isAtTop ? "at-top" : ""}`}>
-      <div className="header__container">
-      <div id="overlay"></div>
-
-        <a className="logo" href="">Apollo Mattos</a>
-
+    <header className='site-header'>
+      <div className='header__container'>
+        <a className='logo' href=''>Apollo Mattos</a>
         <Navbar refs={refs}/>
       </div>
-
-      <div className="indicator__container">
+      <div className='indicator__container'>
         <ProgressIndicator/>
       </div>
     </header>

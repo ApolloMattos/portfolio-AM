@@ -13,10 +13,7 @@ type NavbarProps = {
 };
 
 export function Navbar({ refs }: NavbarProps) {
-  const [sidebar, setSidebar] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
-
-  const toggleSidebar = () => setSidebar(!sidebar);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +29,7 @@ export function Navbar({ refs }: NavbarProps) {
       sections.forEach(({ name, ref }) => {
         if (
           ref.current &&
-          window.scrollY >= ref.current.offsetTop - 256 &&
+          window.scrollY >= ref.current.offsetTop - window.innerHeight/2 &&
           window.scrollY < ref.current.offsetTop + ref.current.offsetHeight
         ) {
           currentSection = name;
@@ -49,9 +46,29 @@ export function Navbar({ refs }: NavbarProps) {
     };
   }, [refs]);
 
-  // Determine navbar class based on screen size and sidebar state
-  const navbarClass =
-    window.innerWidth < 800 ? (sidebar ? "sidebar open" : "sidebar") : "navbar";
+  const [sidebar, setSidebar] = useState(false);
+  const toggleSidebar = () => setSidebar(!sidebar);
+  const sidebarClass = sidebar ? "open" : "";
+
+  const switchSidebar = () => {
+    if(window.innerWidth < 800){
+      setNavbarClass("sidebar");
+    } else{
+      setNavbarClass("navbar")
+    }
+  };
+
+  const [navbarClass, setNavbarClass] = useState("navbar");
+
+  useEffect(() => {
+    switchSidebar();
+    window.addEventListener("resize", switchSidebar);
+
+    return () => {
+      window.removeEventListener("resize", switchSidebar)
+    };
+  }, []);
+
 
   return (
     <>
@@ -63,7 +80,7 @@ export function Navbar({ refs }: NavbarProps) {
       </button>
 
       {/* Navigation bar */}
-      <nav className={navbarClass}>
+      <nav className={`${navbarClass} ${sidebarClass}`}>
         <ul className="list">
 
         {/*Button to close sidebar */}
@@ -74,34 +91,25 @@ export function Navbar({ refs }: NavbarProps) {
         </button>
 
           <li className="item">
-            <button
-              onClick={() => scrollToSection(refs.home)}
-              className={`link ${activeSection === "home" ? "active" : ""}`}
-            >
+            <button onClick={() => scrollToSection(refs.home)} className={`link ${activeSection === "home" ? "active" : ""}`}>
               Home
             </button>
           </li>
+
           <li className="item">
-            <button
-              onClick={() => scrollToSection(refs.about)}
-              className={`link ${activeSection === "about" ? "active" : ""}`}
-            >
+            <button onClick={() => scrollToSection(refs.about)} className={`link ${activeSection === "about" ? "active" : ""}`}>
               About
             </button>
           </li>
+
           <li className="item">
-            <button
-              onClick={() => scrollToSection(refs.projects)}
-              className={`link ${activeSection === "projects" ? "active" : ""}`}
-            >
+            <button onClick={() => scrollToSection(refs.projects)} className={`link ${activeSection === "projects" ? "active" : ""}`}>
               Projects
             </button>
           </li>
+          
           <li className="item">
-            <button
-              onClick={() => scrollToSection(refs.contact)}
-              className="link button--cta"
-            >
+            <button onClick={() => scrollToSection(refs.contact)} className="link button--cta">
               Contact
             </button>
           </li>
