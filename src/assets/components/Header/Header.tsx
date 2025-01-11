@@ -31,10 +31,13 @@ export function Header({ refs }: HeaderProps) {
     
     <header className={`site-header ${isAtTop ? "at-top" : ""}`}>
       <div className="header__container">
+      <div id="overlay"></div>
+
         <a className="logo" href="">Apollo Mattos</a>
 
         <Navbar refs={refs}/>
       </div>
+
       <div className="indicator__container">
         <ProgressIndicator/>
       </div>

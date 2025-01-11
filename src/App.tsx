@@ -7,7 +7,7 @@ import { About } from "./pages/about/About"
 import { Projects } from "./pages/projects/Projects"
 import { Contact } from "./pages/contact/Contact"
 import { useRef } from "react"
-import { Sidebar } from "./assets/components/Sidebar/sidebar"
+// import { Sidebar } from "./assets/components/Sidebar/sidebar"
 function App() {
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -16,12 +16,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Sidebar refs={{
+      {/* <Sidebar refs={{
           home: homeRef,
           about: aboutRef,
           projects: projectsRef,
           contact: contactRef,
-        }}/>
+        }}/> */}
 
       <Header 
         refs={{

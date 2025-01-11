@@ -1,13 +1,17 @@
-.navbar__list {
+
+.navbar{
+    z-index: 999;
+}
+.navbar .list {
     list-style: none;
 }
 
-.navbar__item{
+.navbar .item{
     display: inline-block;
     padding: 0 1rem;
 }
 
-.navbar__link{
+.navbar .link{
     text-decoration: none;
     color: #fff;
     position: relative;
@@ -18,12 +22,12 @@
 
 }
 
-.navbar__link.active {
+.navbar .link.active {
     font-weight: 600;
     color: rgb(255, 190, 0);
 }
 
-.navbar__link.active::before {
+.navbar .link.active::before {
     content: "";
     background-color: white;
     height: 2px;
@@ -33,7 +37,7 @@
     transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.navbar__button--cta{
+.navbar .button--cta{
     display: inline;
     position: relative;
     background: #ffb703;
@@ -49,4 +53,28 @@
     padding-inline: 1.5rem;
     margin-left: 2rem;
     transition: all 0.3s ease-in-out;
+}
+
+.hamburger-button{
+    display: none;
+}
+
+.close-button{
+    display: none;
+    padding: 10px;
+    width: 100%;
+}
+
+@media screen and  (max-width:800px){
+    .hamburger-button{
+        display: block;
+    }
+
+    .close-button{
+        display: block;
+    }
+
+    .navbar{
+        display: none;
+    }
 }
