@@ -9,7 +9,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 20rem;
+    width: 60%;
     height: 100dvh;
     z-index: 999;
     background: rgba( 255, 255, 255, 0.6 );
@@ -65,4 +65,10 @@
     opacity: 1;
     backdrop-filter: blur(10px);
 
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar{
+        width: 80%;;
+    }
 }

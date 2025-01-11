@@ -10,9 +10,12 @@ type NavbarProps = {
     projects: React.RefObject<HTMLDivElement>;
     contact: React.RefObject<HTMLDivElement>;
   };
+
+  sidebar: boolean;
+  toggleSidebar: () => void;
 };
 
-export function Navbar({ refs }: NavbarProps) {
+export function Navbar({ refs, sidebar, toggleSidebar}: NavbarProps) {
   const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
@@ -46,8 +49,7 @@ export function Navbar({ refs }: NavbarProps) {
     };
   }, [refs]);
 
-  const [sidebar, setSidebar] = useState(false);
-  const toggleSidebar = () => setSidebar(!sidebar);
+
   const sidebarClass = sidebar ? "open" : "";
 
   const switchSidebar = () => {
