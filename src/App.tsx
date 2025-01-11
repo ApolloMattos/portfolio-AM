@@ -1,13 +1,14 @@
-import { BrowserRouter} from "react-router-dom"
-import { Header } from "./assets/components/Header/Header"
-import "./index.css"
-import { Footer } from "./assets/components/Footer/Footer"
+import "./styles/global.css"
+import "./styles/reset.css"
+import "./styles/variables.css"
+import { Header } from "./components/Header/Header"
+import { Footer } from "./components/Footer/Footer"
 import { Home } from "./pages/home/Home"
 import { About } from "./pages/about/About"
 import { Projects } from "./pages/projects/Projects"
 import { Contact } from "./pages/contact/Contact"
 import { useRef } from "react"
-// import { Sidebar } from "./assets/components/Sidebar/sidebar"
+
 function App() {
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -15,14 +16,7 @@ function App() {
   const contactRef = useRef<HTMLDivElement>(null);
 
   return (
-    <BrowserRouter>
-      {/* <Sidebar refs={{
-          home: homeRef,
-          about: aboutRef,
-          projects: projectsRef,
-          contact: contactRef,
-        }}/> */}
-
+    <>
       <Header 
         refs={{
           home: homeRef,
@@ -39,7 +33,7 @@ function App() {
         <div ref={contactRef}> <Contact /> </div>
       </main>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 const mediaQuery = window.matchMedia("(min-width: 768px)");
