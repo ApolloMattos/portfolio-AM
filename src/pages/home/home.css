@@ -14,21 +14,8 @@ section.home{
 }
 
 
-.hero{
-    padding-inline: min(6rem, 8%);
-}
 
-.hero h1, h2, h3, p{
-    font-family: "Poppins", sans-serif;
-}
 
-.hero h1 {
-    font-size: clamp(1.8rem, calc(3vw + 1rem), 2.75rem);
-}
-
-.hero h2{
-    font-size: clamp(1.8rem, calc(3vw + 1rem), 2.75rem);
-}
 
 .hero h3{
     font-family: 'Montserrat';
@@ -46,20 +33,6 @@ section.home{
 }
 
 
-@media screen and (max-width: 1024px){
-
-    .hero {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-    }
-
-    .line {
-        display: none;
-    }
-    
-
-}
 
 /* @media (min-aspect-ratio:16/9){
     .background-clip{

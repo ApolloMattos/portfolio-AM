@@ -23,11 +23,10 @@ export function Header({ refs }: HeaderProps) {
     <>
     <Sidebar refs={refs}/>
     <Backdrop isVisible={sidebar}></Backdrop>
-    <header className='site-header'>
-
-      <div className='header__container'>
+    <header className='site-header w-full fixed transition duration-200 ease-in-out z-50'>
+      <div className='header-container flex items-center justify-between h-full py-5 px-5 md:px-16 '>
         <a href="">
-          <img src="/static/images/apollo-mattos-logo-v2.svg" alt="Description of the image" />
+          <img className='w-auto h-12' src="/static/images/apollo-mattos-logo-v2.svg" alt="Description of the image" />
         </a>
         <Navbar refs={refs} sidebar={sidebar} toggleSidebar={toggleSidebar} />
       </div>

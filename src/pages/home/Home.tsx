@@ -19,7 +19,7 @@ export function Home() {
       id="home"
     >
       <Hero />
-      <SkillSet skillList={skillList} />
+      {/* <SkillSet skillList={skillList} /> */}
     </section>
   );
 }
