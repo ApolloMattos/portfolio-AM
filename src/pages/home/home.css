@@ -1,9 +1,18 @@
+section.home::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url(/public/static/images/noise.svg);
+    opacity: 0.1;
+    mix-blend-mode:soft-light;
+}
+
 section.home{
     display: flex;
-    height: 95svh;
-    
+    height: 95dvh;
+    position: relative;
     overflow: hidden;
-
+    background: radial-gradient(circle at top left, #111315 0%, #1B1F24 100%);
 }
 
 .background-clip{
@@ -14,6 +23,7 @@ section.home{
     top: 0;
     left: 0;
     z-index: -10;
+    display: none;
 }
 
 .video-blur{
@@ -26,34 +36,60 @@ section.home{
     backdrop-filter: blur(0px);
 }
 
-.text-container{
+.hero{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    padding-inline: min(6rem, 8%);
+    z-index: 10;
+}
+
+.hero-container{
     display: grid;
-    row-gap: 1rem;
-    height: 100%;
-    padding-inline: min(4rem, 8%);
-    width: min(56rem, 100%);
+    grid-template-rows:repeat(4, min-content);
 }
-.text-container h1, h2{
+
+.hero h1, h2, h3, p{
     font-family: "Poppins", sans-serif;
-    display: block;
-    line-height: 1;
-    z-index: 2;
 }
 
-.text-container h1{
+.hero h1 {
+    font-size: clamp(1.8rem, calc(3vw + 1rem), 2.75rem);
+    font-weight: 500;
+    color: white;
+    grid-row: 2;
     align-self: end;
-    font-size: clamp(1.8rem, calc(3vw + 1rem), 4rem);
+}
+.hero-container h1 span{
     font-weight: 600;
-    color: white;
+}
+.hero h2{
+    font-size: clamp(1.8rem, calc(3vw + 1rem), 2.75rem);
+    color: #ccc;
+    grid-row: 3;
+}
 
+.hero h3{
+    font-family: 'Montserrat';
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #999;
+    grid-row: 4;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 
 }
 
-.text-container h2{
-    color: white;
-    font-size: clamp(1rem, calc(3vw + 0.1rem), 1.25rem);
+.hero p{
+    grid-row: 5;
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #fff;
 }
-.img-container{
+
+.img-hero{
     display: flex;
     justify-self: right;
     overflow: hidden;
@@ -62,8 +98,49 @@ section.home{
 
 }
 
-.img-container img{
+.img-hero img{
     height: 768px;
+
+}
+
+.grey-clr{ color: #ffffff66; }
+
+.div-clr{ color: #569CD6; }
+
+.class-clr{ color: #88D0FF}
+
+.quotes-clr{ color: #E08A67}
+
+.component-clr{ color: #40E7C6}
+
+.skill-set-box h1{
+	font-family: Consolas, monaco, monospace; 
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+.skill-set-box{
+    position: absolute;
+    right: 0;
+    min-width: fit-content;
+    padding: 2rem;
+    border: solid 1px #ffffff44;
+    border-radius: 2rem;
+
+}
+
+@media screen and (max-width: 1024px){
+
+    .hero {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .line {
+        display: none;
+    }
+    
 
 }
 

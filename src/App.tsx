@@ -27,7 +27,7 @@ function App() {
       />        
 
       <main>
-        <div ref={homeRef}> <Home /> </div>
+        <div className="sas" ref={homeRef}> <Home /> </div>
         <div ref={aboutRef}> <About /></div>
         <div ref={projectsRef}> <Projects /> </div>
         <div ref={contactRef}> <Contact /> </div>

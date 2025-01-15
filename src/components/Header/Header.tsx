@@ -3,6 +3,7 @@ import { Navbar } from '../Navbar/Navbar';
 import { ProgressIndicator } from '../ProgressIndicator/ProgressIndicator';
 import { Backdrop } from '../backdrop';
 import { useState } from 'react';
+import { Sidebar } from '../Sidebar/sidebar';
 
 type HeaderProps = {
   refs: {
@@ -20,10 +21,14 @@ export function Header({ refs }: HeaderProps) {
 
   return (
     <>
+    <Sidebar refs={refs}/>
     <Backdrop isVisible={sidebar}></Backdrop>
     <header className='site-header'>
+
       <div className='header__container'>
-        <a className='logo' href=''>Apollo Mattos</a>
+        <a href="">
+          <img src="/static/images/apollo-mattos-logo-v2.svg" alt="Description of the image" />
+        </a>
         <Navbar refs={refs} sidebar={sidebar} toggleSidebar={toggleSidebar} />
       </div>
       <div className='indicator__container'>

@@ -49,16 +49,17 @@ export function Navbar({ refs, sidebar, toggleSidebar}: NavbarProps) {
     };
   }, [refs]);
 
-
   const sidebarClass = sidebar ? "open" : "";
 
   const switchSidebar = () => {
-    if(window.innerWidth < 800){
+    if (window.innerWidth < 800) {
       setNavbarClass("sidebar");
-    } else{
-      setNavbarClass("navbar")
+    } else {
+      setNavbarClass("navbar");
+      if (sidebar) toggleSidebar(); 
     }
   };
+  
 
   const [navbarClass, setNavbarClass] = useState("navbar");
 
@@ -71,49 +72,43 @@ export function Navbar({ refs, sidebar, toggleSidebar}: NavbarProps) {
     };
   }, []);
 
-
+  type SectionKey = keyof NavbarProps["refs"];
+  const navItems: { name: string; section: SectionKey; isCta?: boolean }[] = [
+    { name: "Home", section: "home" },
+    { name: "About", section: "about" },
+    { name: "Projects", section: "projects" },
+  ];
+  
   return (
     <>
       {/* Hamburger button to open sidebar */}
       <button className="hamburger-button" onClick={toggleSidebar}>
-        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#fff">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px">
           <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
         </svg>
       </button>
-
+  
       {/* Navigation bar */}
       <nav className={`${navbarClass} ${sidebarClass}`}>
         <ul className="list">
-
-        {/*Button to close sidebar */}
-        <button className="close-button" onClick={toggleSidebar}>
-          <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
-            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
-          </svg>
-        </button>
-
+          {/* Button to close sidebar */}
+          <button className="close-button" onClick={toggleSidebar}>
+            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px">
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+          </button>
+  
+          {/* Render navigation items dynamically */}
+          {navItems.map((item) => (
+            <li key={item.section} className="item">
+              <a  onClick={() => scrollToSection(refs[item.section])}
+                  className={`link ${activeSection === item.section ? "active" : ""}`}>
+                  {item.name}
+              </a>
+            </li>
+          ))}
           <li className="item">
-            <button onClick={() => scrollToSection(refs.home)} className={`link ${activeSection === "home" ? "active" : ""}`}>
-              Home
-            </button>
-          </li>
-
-          <li className="item">
-            <button onClick={() => scrollToSection(refs.about)} className={`link ${activeSection === "about" ? "active" : ""}`}>
-              About
-            </button>
-          </li>
-
-          <li className="item">
-            <button onClick={() => scrollToSection(refs.projects)} className={`link ${activeSection === "projects" ? "active" : ""}`}>
-              Projects
-            </button>
-          </li>
-          
-          <li className="item">
-            <button onClick={() => scrollToSection(refs.contact)} className="link button--cta">
-              Contact
-            </button>
+              <button className={`button-cta ${activeSection === "contact" ? "active" : ""}`} onClick={() => scrollToSection(refs.contact)}> Contact</button>
           </li>
         </ul>
       </nav>
