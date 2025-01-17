@@ -3,7 +3,7 @@
     z-index: 999;   
 }
 
-.list {
+.navbar .list {
     display: grid;
     grid-template-columns: repeat(4, max-content);
     column-gap: 4rem;
@@ -12,17 +12,17 @@
     list-style: none;
 }
 
-.item {
+.navbar .item {
     display: inline-block;
     transition: all 0.4s ease-in-out;
     font-family: "Poppins", 'Segoe UI', sans-serif;
 }
 
-.item:has(.link):hover{
+.navbar .item:has(.link):hover{
     transform: translateY(-10%);
 }
 
-.link {
+.navbar .link {
     text-decoration: none;
     color: #fff;
     position: relative;
@@ -34,7 +34,7 @@
 
 }
 
-.link::before {
+.navbar .link::before {
     content: "";
     position: absolute;
     height: 2px;
@@ -46,20 +46,20 @@
     filter: blur(1px);
 }
 
-.link:hover::before{
+.navbar .link:hover::before{
     opacity: 1;
 }
 
-.link.active {
+.navbar .link.active {
     opacity: 1;
 }
 
-.link.active::before {
+.navbar .link.active::before {
     background: linear-gradient(to right, #00000000 0%, #ffffff 50%, #00000000 100% ) ;
     opacity: 1;
 }
 
-.button--cta{
+.navbar .button--cta{
     position: relative;
     overflow: hidden;
     padding-block: 12px;
@@ -76,40 +76,24 @@
 
 
 
-.button--cta.active::before{
+.navbar .button--cta.active::before{
     transform: translateY(0);
 }
 
-.button--cta.active{
+.navbar .button--cta.active{
     color: #000;
 }
 
-.button--cta:hover::before {
+.navbar .button--cta:hover::before {
     transform: translateY(0);
 }
-.button--cta:hover {
+.navbar .button--cta:hover {
     color: #000;
 }
 
 
 
 
-
-.hamburger-button{
-    display: none;
-}
-
-.close-button{
-    display: none;
-    padding-inline: min(4rem, 12%);
-    height: 80px;
-    fill: #fff;
-    float: right;
-}
-
-.close-button:active{
-    fill: red;
-}
 
 
 @media screen and  (max-width:800px){

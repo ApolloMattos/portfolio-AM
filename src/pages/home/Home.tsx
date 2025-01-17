@@ -1,3 +1,4 @@
+import { BackgroundNoise } from "./BackgroundNoise";
 import { Hero } from "./Hero";
 // import { SkillSet } from "./SkillSet";
 import "./home.css";
@@ -18,6 +19,8 @@ export function Home() {
       className="home items-center flex relative overflow-hidden z-0 "
       id="home"
     >
+      <BackgroundNoise />
+
       <Hero />
       {/* <SkillSet skillList={skillList} /> */}
     </section>

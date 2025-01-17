@@ -1,5 +1,5 @@
-import { scrollToSection } from "../scrollIntoView";
-import "../Sidebar/sidebar.css";
+import { scrollToSection } from "../SmoothScroll";
+import "../Navbar/sidebar.css";
 
 type SidebarProps = {
     refs: {
@@ -9,10 +9,6 @@ type SidebarProps = {
       contact: React.RefObject<HTMLDivElement>;
     };
 };
-
-
-
-
 
 export function Sidebar({refs}: SidebarProps) {
 

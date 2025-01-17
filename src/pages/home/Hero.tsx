@@ -1,3 +1,4 @@
+
 export function Hero() {
   return (
     <div className="hero flex z-10 items-center h-full w-full  lg:w-9/12 px-8 md:px-16">
@@ -8,7 +9,7 @@ export function Hero() {
             Apollo Mattos,
           </span>
         </h1>
-        <h2 className="text-gray-300 font-light tracking-wider mt-1 text-2xl md:text-5xl md:font-medium md:tracking-normal">
+        <h2 className="text-gray-300 font-light tracking-wider mt-1 text-xl md:text-5xl md:font-medium md:tracking-normal">
           Desenvolvedor Front-end
         </h2>
         <h3 className="text-gray-400 tracking-wider mt-4 mb-8">PR - BRASIL</h3>
