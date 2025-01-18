@@ -1,8 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { NavRefContext } from "./NavRefsContext";
 import { scrollToSection } from "../scrollToSection";
+import { setAttributes } from "./sidebarUtils";
 
-export function Navlist() {
+type NavListProps = {
+  navRef: React.RefObject<HTMLElement>;
+  toggleSidebar: () => void;
+};
+export function Navlist({ toggleSidebar, navRef }: NavListProps) {
   const context = useContext(NavRefContext);
   if (!context) {
     throw new Error("NavRefContext não encontrado!");
@@ -41,6 +46,13 @@ export function Navlist() {
     };
   }, []);
 
+  const handleClick = () => {
+    toggleSidebar();
+    if (navRef.current) {
+      setAttributes(navRef.current, false);
+    }
+  };
+
   return (
     <ul className="list">
       {navItems.map((item) => {
@@ -49,7 +61,9 @@ export function Navlist() {
         return (
           <li className="item" key={item.section}>
             <a
-              onClick={() => scrollToSection(refs[refKey])}
+              onClick={() => {
+                scrollToSection(refs[refKey]), handleClick();
+              }}
               className={`link ${activeSection === item.section ? "active" : ""} ${item.isCta ? "button--cta" : ""}`}
             >
               {item.name}

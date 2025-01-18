@@ -1,38 +1,32 @@
-.background-noise{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: url(/public/static/images/noise.svg);
-    opacity: 0.1;
-    mix-blend-mode:soft-light;
-    z-index: 1;
+.background-noise {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url(/public/static/images/noise.svg);
+  opacity: 0.1;
+  mix-blend-mode: soft-light;
+  z-index: 1;
 }
 
-section.home{
-    height: 95dvh;
-    background: radial-gradient(circle at top left, #111315 0%, #1B1F24 100%);
+section.home {
+  height: 95dvh;
+  background-color: #111315;
+  background: radial-gradient(circle at top left, #111315 0%, #1b1f24 100%);
 }
 
-
-
-
-
-.hero h3{
-    font-family: 'Montserrat';
-    font-size: 20px;
-
+.hero h3 {
+  font-family: "Montserrat";
+  font-size: 20px;
 }
 
-.hero p{
-    font-size: 17px;
+.hero p {
+  font-size: 17px;
 }
 
-.skill-set-box h1{
-	font-family: Consolas, monaco, monospace; 
-    font-size: 20px;
+.skill-set-box h1 {
+  font-family: Consolas, monaco, monospace;
+  font-size: 20px;
 }
-
-
 
 /* @media (min-aspect-ratio:16/9){
     .background-clip{

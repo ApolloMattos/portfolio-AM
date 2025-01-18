@@ -1,65 +1,56 @@
-.sidebar.open{
-    display: block;
-    transition: 1s;
-
+.sidebar.open {
+  transform: translateX(0);
+  transition: all ease-in-out .5s;
 }
 
-.sidebar{
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100dvh;
-    z-index: 200;
-    background: rgba(35, 39, 47, 0.8);
-    color: #fff;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur( 12px );
-    -webkit-backdrop-filter: blur( 12px );
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    transition: 1s;
+.sidebar {
+  transform: translateX(100%);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100dvh;
+  background-color: hsla(0, 0%, 25%, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+  transition: 1s;
 }
 
-.sidebar .list{
-    display: block;
+.sidebar .list {
+  display: grid;
 }
-.sidebar .item{
-    width: 100%;
-}
-
-
-.sidebar .link, .button--cta{
-    display: block;
-    width: 100%;
-    padding: 3rem 3rem;
-    font-family: "Poppins";
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: 0.2s;
-    border: solid 1px transparent;
+.sidebar .item {
+  position: relative;
+  display: block;
 }
 
-.sidebar .item::after{
-    content: '';
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.5);
-
-
-}
-.sidebar .link.active, .button--cta.active{
-    border: solid 1px #00ffff;
-    background: #55d3d365;
-    box-shadow: inset 0 0 1.5rem rgba(103, 253, 253, 0.658);;
-
+.sidebar .link,
+.button--cta {
+  color: #fff;
+  display: block;
+  padding: 2.5rem;
+  font-family: "Poppins";
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: 0.2s;
+  box-shadow: 0 0.5px 0 0 rgba(255, 255, 255, 0.5);
 }
 
+.sidebar .link.active,
+.button--cta.active {
+  background: #55d3d365;
+  box-shadow:
+    inset 0 0 2rem rgba(103, 253, 253, 0.7),
+    inset 0.5rem 0 0 rgb(230, 255, 255);
+}
+
+.close-button {
+  fill: red;
+}
 
 @media screen and (max-width: 480px) {
-    .sidebar{
-        width: 80%;;
-    }
+  .sidebar {
+    width: 85%;
+  }
 }

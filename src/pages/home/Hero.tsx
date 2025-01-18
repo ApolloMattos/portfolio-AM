@@ -1,4 +1,3 @@
-
 export function Hero() {
   return (
     <div className="hero flex z-10 items-center h-full w-full  lg:w-9/12 px-8 md:px-16">

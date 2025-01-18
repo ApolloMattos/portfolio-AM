@@ -8,8 +8,7 @@ export type NavRefType = {
     contactRef: React.RefObject<HTMLDivElement>;
   };
 
-  navItems: Array<{ name: string; section: string; isCta?: Boolean}>;
+  navItems: Array<{ name: string; section: string; isCta?: Boolean }>;
 };
-
 
 export const NavRefContext = createContext<NavRefType | null>(null);
